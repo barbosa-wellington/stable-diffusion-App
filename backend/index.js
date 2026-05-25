@@ -53,7 +53,7 @@ app.post('/api/generate', async (req, res) => {
 
         const base64Image = data.images[0];
 
-        res.json({image: `data:image/png;based=64,${base64Image}`});
+        res.json({image: `data:image/png;base64,${base64Image}`});
         console.log("Success! Image sent back to the phone.");
     } catch (error) {
 
@@ -65,6 +65,7 @@ app.post('/api/generate', async (req, res) => {
 
 
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+// Change this line at the bottom of server/index.js:
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Backend bridge running and listening to network on port ${PORT}`);
 });
