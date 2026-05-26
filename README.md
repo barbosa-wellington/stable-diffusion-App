@@ -31,6 +31,7 @@ The backend contains all the endpoint to access the stable diffusion API
 
 The Backend Route Engine (server/index.js)
 
+```
 app.post('/api/generate', async (req, res) => {
   const { prompt } = req.body;
   try {
@@ -49,10 +50,12 @@ app.post('/api/generate', async (req, res) => {
     res.status(500).json({ error: "Failed to process image computation" });
   }
 });
+```
 
 
 The Client Network Logic Fragment (mobile/src/app/index.tsx)
 
+```
 const generateImage = async () => {
   try {
     // Dynamic explicit IP matching ensures packet paths clear standard subnets
@@ -68,3 +71,4 @@ const generateImage = async () => {
     Alert.alert("Network Error", "Connection drop intercepted.");
   }
 };
+```
