@@ -26,6 +26,21 @@ The backend contains all the endpoint to access the stable diffusion API
 
         node index.js
 
+# Repository directories
+```
+
+stable-diffusion-app/
+├── mobile/                  <-- Cross-Platform React Native App with Expo 54
+│   ├── src/
+│   │   └── app/
+│   │       └── index.tsx    <-- Core Screen View, Input controls & Render engine hooks
+│   ├── tsconfig.json        <-- TypeScript Compilation Configurations 
+│   └── package.json         <-- Target Expo Module Dependencies (SDK 54 Compatibility Node)
+└── backend/                  <-- Express API Gateway Bridge
+    ├── index.js             <-- Network routing server, CORS policies, & Fetch protocols
+    └── package.json         <-- Managed runtime modules (Express 5.x & CORS)
+
+```
 
 # Critical Code Architecture References
 
