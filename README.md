@@ -1,6 +1,10 @@
 
 # stable-diffusion-App
-Simple app that connects to the stable diffusion and generates simple images
+Stable diffusion app allows users to generate images based on an initial prompt.
+
+<p align='center'>
+<img src='mobile/assets/images/sd-app.png' width="500" height="500" alt="App logo" />
+</p>
 
 
 # API
