@@ -54,6 +54,7 @@ app.post('/api/generate', async (req, res) => {
         const base64Image = data.images[0];
 
         res.json({image: `data:image/png;base64,${base64Image}`});
+        // console.log(`${base64Image}`);
         console.log("Success! Image sent back to the phone.");
     } catch (error) {
 
