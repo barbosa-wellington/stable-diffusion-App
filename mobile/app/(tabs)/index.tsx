@@ -98,9 +98,14 @@
 // });
 
 import React, { useState } from 'react';
-import { StyleSheet, View, TextInput, Button, Alert, Image, Text } from 'react-native';
+import { StyleSheet, View, TextInput, Button, Alert, Image, Text, ImageBackground, Dimensions } from 'react-native';
+
+// set image background dimentions
+  const { width, height} = Dimensions.get('window');
 
 export default function Page() {
+
+  
   // 1. Create a state variable to store the text input
   const [prompt, setPrompt] = useState('');
 
@@ -109,7 +114,8 @@ export default function Page() {
 
   // creating hte asynchronous function to halde the API call
   const generateImage = async () => {
-
+  
+    
     try {
       
       
@@ -141,9 +147,15 @@ export default function Page() {
     }
 
   };
+  
 
   return (
     <View style={styles.container}>
+{/* Adding the background image on the app and define a style */}
+      <ImageBackground 
+        source={require('../../assets/images/sd1-image.png')}
+        resizeMode='cover'
+        style={styles.backgroundImage}>
       {/* 2. Add the Input component */}
       <TextInput
         style={styles.input}
@@ -169,6 +181,7 @@ export default function Page() {
           <Text style={styles.placeholderText}> Your masterpiece will appear here</Text>    
         )}
       </View>
+      </ImageBackground>
     </View>
     
   );
@@ -187,7 +200,7 @@ const styles = StyleSheet.create({
     borderWidth: 1, 
     paddingHorizontal: 15, 
     borderRadius: 8,
-    color: '#000',
+    color: '#f9f4f4',
     fontSize: 16,
     marginBottom:20,
   },
@@ -213,5 +226,15 @@ const styles = StyleSheet.create({
     height: '100%',
     borderRadius: 12,
     resizeMode: 'cover',       // Make the image scale perfectly to fit the container boundaries
+  },
+  // Create a style for setting specific dimention for the image background
+  backgroundImage: {
+    width: width,
+    height: height,
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
   }
 });
