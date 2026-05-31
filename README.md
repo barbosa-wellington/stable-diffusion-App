@@ -3,7 +3,7 @@
 Stable diffusion app allows users to generate images based on an initial prompt.
 
 <p align='center'>
-<img src='mobile/assets/images/sd-app.png' width="500" height="500" alt="App logo" />
+<img src='mobile/assets/images/sd1-image-new.png' width="500" height="500" alt="App logo" />
 </p>
 
 
