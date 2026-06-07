@@ -67,7 +67,7 @@ def processing_image_depth(image):
     plt.show()
 
 
-processing_image_depth(filename)
+# processing_image_depth(filename)
 
 # processing video depth function
 def processing_video_depth():
@@ -79,7 +79,7 @@ def processing_video_depth():
 
         # transform import from Midas
         img = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        imgbatch = transform(img).to('cpu')
+        imgbatch = transform(img).to(device)
 
         # making a prediction
         with torch.no_grad():
@@ -105,4 +105,4 @@ def processing_video_depth():
             cv2.destroyAllWindows()
     plt.show()
 
-# processing_video_depth()
+processing_video_depth()
