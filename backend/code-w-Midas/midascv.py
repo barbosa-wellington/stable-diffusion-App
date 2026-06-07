@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 #download of MiDaS models - Image for the test
 midas= torch.hub.load('intel-isl/MiDaS', 'MiDaS_small')
 filename = 'data/00001-1918428395.png'
+fn = 'data/00000-2276955457.png'
 
 
 # modifying the model to check for avaiable GPU otherwise use cpu
@@ -26,9 +27,9 @@ transforms = torch.hub.load('intel-isl/MiDaS', 'transforms')
 transform = transforms.small_transform
 
 # ploting image of depth map
-def processing_image_depth(filename):
+def processing_image_depth(image):
     # using an image for this test
-    img = cv2.imread(filename)
+    img = cv2.imread(image)
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
     input_batch = transform(img).to(device)
@@ -47,14 +48,28 @@ def processing_image_depth(filename):
 
     # Obtaining the numpy array of the image
     output = prediction.cpu().numpy()
+
+
     # add the image to a plot and using hte cmap function to distiguish the depths
-    plt.imshow(output, cmap='magma')
+    fig, axes = plt.subplots(1, 2, figsize=(12, 6))
+
+    axes[0].imshow(img)
+    axes[0].set_title("SD image")
+    axes[0].axis('off')
+
+    im_depth = axes[1].imshow(output, cmap='magma')
+    axes[1].set_title("Depth Map")
+    axes[1].axis('off')
+
+    fig.colorbar(im_depth, ax=axes[1], shrink=0.7)
+    
+    plt.tight_layout()
     plt.show()
 
 
-# processing_image_depth(filename)
+processing_image_depth(filename)
 
-
+# processing video depth function
 def processing_video_depth():
 
     # Hook into OpenCV
@@ -90,4 +105,4 @@ def processing_video_depth():
             cv2.destroyAllWindows()
     plt.show()
 
-processing_video_depth()
+# processing_video_depth()
