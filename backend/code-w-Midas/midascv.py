@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 #download of MiDaS models - Image for the test
 midas= torch.hub.load('intel-isl/MiDaS', 'MiDaS_small')
 filename = 'data/00001-1918428395.png'
-fn = 'data/00000-2276955457.png'
+fn = 'data/forest-scene.png'
 
 
 # modifying the model to check for avaiable GPU otherwise use cpu
@@ -67,7 +67,7 @@ def processing_image_depth(image):
     plt.show()
 
 
-# processing_image_depth(filename)
+processing_image_depth(fn)
 
 # processing video depth function
 def processing_video_depth():
@@ -105,4 +105,4 @@ def processing_video_depth():
             cv2.destroyAllWindows()
     plt.show()
 
-processing_video_depth()
+# processing_video_depth()

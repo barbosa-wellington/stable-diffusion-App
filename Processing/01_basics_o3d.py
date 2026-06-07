@@ -12,7 +12,7 @@ import copy
 #load data in variables
 pcd = o3d.io.read_point_cloud('bunny/bun_zipper_res2.ply')
 pcd_original = o3d.io.read_point_cloud('dragon_stand/dragonStandRight_336.ply')
-
+forest = o3d.io.read_image('data/forest.png')
 
 #visualization of the data
 #o3d.visualization.draw_geometries([pcd1])
