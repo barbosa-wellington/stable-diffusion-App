@@ -7,7 +7,13 @@
 <img src='data/panda_3d.jpg' width="500" height="500" alt="App logo" />
 </p>
 
+    ## tu run panda3d test
+    python panda3d-test.py
+
 # Open3d allows the visualization of 3d images
 <p align='center'>
 <img src='data/3d_ploting.jpg' width="500" height="500" alt="App logo" />
 </p>
+
+    ## to run the test:
+    python 01_basics_o3d.py
