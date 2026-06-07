@@ -26,6 +26,25 @@ The backend contains all the endpoint to access the stable diffusion API
 
         node index.js
 
+
+    ## MidaS for deepth image analysis:
+
+    <p align='center'>
+<img src='backend/code-w-Midas/data/MiDaS-depth01.jpg' width="500" height="500" alt="App logo" />
+</p>
+
+
+# Processing
+
+The processing cotains all the test using different 3D libraries such as Panda3D and Open3D
+
+        python panda3d-test.py
+
+<p align='center'>
+<img src='processing/data/3d_ploting.jpg' width="500" height="500" alt="App logo" />
+</p>
+
+
 # Repository directories
 ```
 
