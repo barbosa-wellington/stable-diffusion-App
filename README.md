@@ -30,7 +30,7 @@ The backend contains all the endpoint to access the stable diffusion API
     ## MidaS for deepth image analysis:
 
     <p align='center'>
-<img src='backend/code-w-Midas/data/MiDaS-depth01.jpg' width="500" height="500" alt="App logo" />
+<img src='./backend/code-w-Midas/data/MiDaS-depth01.jpg' width="500" height="500" alt="App logo" />
 </p>
 
 
@@ -41,7 +41,7 @@ The processing cotains all the test using different 3D libraries such as Panda3D
         python panda3d-test.py
 
 <p align='center'>
-<img src='processing/data/3d_ploting.jpg' width="500" height="500" alt="App logo" />
+<img src='./Processing/data/3d_ploting.jpg' width="500" height="500" alt="App logo" />
 </p>
 
 
