@@ -30,7 +30,7 @@ The backend contains all the endpoint to access the stable diffusion API
     ## MidaS for deepth image analysis:
 
 <p align='center'>
-<img src='./backend/code-w-Midas/data/MiDaS-depth01.jpg' width="500" height="500" alt="App logo" />
+<img src='./backend/code-w-Midas/data/MiDaS_depth01.jpg' width="500" height="500" alt="App logo" />
 </p>
 
 
