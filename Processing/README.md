@@ -17,3 +17,9 @@
 
     ## to run the test:
     python 01_basics_o3d.py
+
+
+## Acknowledgements & Citations
+- **Open3D** — Zhou et al., 2018. [https://www.open3d.org](https://www.open3d.org) — MIT License
+- **MiDaS** — Intel ISL
+- **Stable Diffusion** — Stability AI
