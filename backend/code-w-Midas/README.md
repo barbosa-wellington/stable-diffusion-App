@@ -12,3 +12,7 @@ This is a intel library for image depth control. This library allows processing 
 <p align='center'>
 <img src='data/MiDaS_depth01.jpg' width="500" height="500" alt="App logo" />
 </p>
+
+<p align='center'>
+<img src='data/MiDaS_depth02.jpg' width="500" height="500" alt="App logo" />
+</p>
