@@ -7,7 +7,7 @@ This is a temporary script file.
 
 # import the necessary labraries
 import open3d as o3d
-import copy
+
 
 #load data in variables
 pcd = o3d.io.read_point_cloud('data/bun_zipper_res2.ply')
@@ -15,26 +15,25 @@ pcd = o3d.io.read_point_cloud('data/bun_zipper_res2.ply')
 forest = o3d.io.read_image('data/forest-scene.png')
 forest_depth = o3d.io.read_image('data/image.png')
 
-# print('This is the original image')
-# print(forest)
-
-# print('This is the image depth')
-# print(forest_depth)
-
 
 # method to visualize the image on a 3D view
-def generate_3D_view(img1,img2,):
+def generate_3D_view(color_img1 : o3d.geometry.Image , depth_img2: o3d.geometry.Image) -> o3d.geometry.PointCloud:
+    """ Method that combines different techniques of the Open3D library to generate a 3D view of a given assest."""
 
-    # creating a RGBD image that combines both original and depth image for a 3d visualization
-    forest_RBGD = o3d.geometry.RGBDImage.create_from_color_and_depth(img1, img2,convert_rgb_to_intensity=False)
-    print(forest_RBGD)
+    # generate a RGBD image that join an original and indepth image
+    rbgd_image = o3d.geometry.RGBDImage.create_from_color_and_depth(color_img1, depth_img2,convert_rgb_to_intensity=False)
+    # print(rbgd_image)
 
-    forest_camera = o3d.camera.PinholeCameraIntrinsic(o3d.camera.PinholeCameraIntrinsicParameters.Kinect2DepthCameraDefault)
+    # calling the ENUM parameter of the class PinholeCamera to calculate camera angle for a vision 3D space
+    camera_image = o3d.camera.PinholeCameraIntrinsic(o3d.camera.PinholeCameraIntrinsicParameters.PrimeSenseDefault)
 
-    # creating from Pointcloud
-    forest_pointcloud = o3d.geometry.PointCloud.create_from_rgbd_image(forest_RBGD,forest_camera)
+    # creating a Pointcloud of the image by using the new rbgd and the camera for a tridimensional visualization
+    pointcloud_image = o3d.geometry.PointCloud.create_from_rgbd_image(rbgd_image,camera_image)
 
-    o3d.visualization.draw_geometries([forest_pointcloud])
+    # visualize the new image on a 3D view
+    view_3d = o3d.visualization.draw_geometries([pointcloud_image])
+    
+    return pointcloud_image
 
 generate_3D_view(forest, forest_depth)
 # #visualization of the data
