@@ -12,8 +12,8 @@ import open3d as o3d
 #load data in variables
 pcd = o3d.io.read_point_cloud('data/bun_zipper_res2.ply')
 # pcd_original = o3d.io.read_point_cloud('dragon_stand/dragonStandRight_336.ply')
-forest = o3d.io.read_image('data/forest-scene.png')
-forest_depth = o3d.io.read_image('data/image.png')
+img_o = o3d.io.read_image('data/00001-1918428395.png')
+img_d = o3d.io.read_image('data/filename-image.png')
 
 
 # method to visualize the image on a 3D view
@@ -35,7 +35,7 @@ def generate_3D_view(color_img1 : o3d.geometry.Image , depth_img2: o3d.geometry.
     
     return pointcloud_image
 
-generate_3D_view(forest, forest_depth)
+generate_3D_view(img_o, img_d)
 # #visualization of the data
 # o3d.visualization.draw_geometries([pcd])
 

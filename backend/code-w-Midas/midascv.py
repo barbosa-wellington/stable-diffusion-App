@@ -12,7 +12,7 @@ import numpy as np
 
 
 #download of MiDaS models - Image for the test
-midas= torch.hub.load('intel-isl/MiDaS', 'MiDaS_small')
+midas= torch.hub.load('isl-org/MiDaS', 'MiDaS_small')
 filename = 'data/00001-1918428395.png'
 fn = 'data/00000-2276955457.png'
 
@@ -24,7 +24,7 @@ midas.eval()
 
 
 # input transformational pipeline
-transforms = torch.hub.load('intel-isl/MiDaS', 'transforms')
+transforms = torch.hub.load('isl-org/MiDaS', 'transforms')
 transform = transforms.small_transform
 
 # ploting image of depth map
@@ -92,8 +92,8 @@ def proc_comp_img(image):
 
     save_depth(output)
 
-    # plt.imshow(output, cmap='magma')
-    # plt.show()
+    plt.imshow(output, cmap='magma')
+    plt.show()
 
 def save_depth(image):
     """ This function allow the creation of a new depth image applying normalization using numpy.
@@ -113,10 +113,10 @@ def save_depth(image):
     # print(int_img)
 
     # plt.savefig("image", dpi=300, bbox_inches="tight")
-    cv2.imwrite("data/00000-2276955457-image.png", int_img)
+    cv2.imwrite("data/filename-image.png", int_img)
 
 # Calling the fuction
-proc_comp_img(fn)
+proc_comp_img(filename)
 
 # processing_image_depth(fn)
 
