@@ -14,7 +14,7 @@ import numpy as np
 #download of MiDaS models - Image for the test
 midas= torch.hub.load('isl-org/MiDaS', 'MiDaS_small')
 filename = 'data/00001-1918428395.png'
-fn = 'data/00000-2276955457.png'
+fn = 'data/forest-scene.png'
 
 
 # modifying the model to check for avaiable GPU otherwise use cpu
@@ -112,11 +112,13 @@ def save_depth(image):
     int_img = normalized_img.astype(np.uint8)
     # print(int_img)
 
+    # invert so far = dark, near
+    int_img = cv2.bitwise_not(int_img)
     # plt.savefig("image", dpi=300, bbox_inches="tight")
-    cv2.imwrite("data/filename-image.png", int_img)
+    cv2.imwrite("data/forest-scene-image.png", int_img)
 
 # Calling the fuction
-proc_comp_img(filename)
+proc_comp_img(fn)
 
 # processing_image_depth(fn)
 
