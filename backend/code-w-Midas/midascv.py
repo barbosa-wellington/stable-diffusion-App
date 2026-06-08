@@ -4,6 +4,7 @@
 import cv2
 import torch
 import matplotlib.pyplot as plt
+import numpy as np
 
 # reference source for deep study
 # indepth vision using MiDaS
@@ -66,8 +67,57 @@ def processing_image_depth(image):
     plt.tight_layout()
     plt.show()
 
+def proc_comp_img(image):
+    # using an image for this test
+    img = cv2.imread(image)
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
-processing_image_depth(fn)
+    input_batch = transform(img).to(device)
+
+    # predict and resize the original image
+    with torch.no_grad():
+        prediction = midas(input_batch)
+
+        prediction = torch.nn.functional.interpolate(
+            prediction.unsqueeze(1),
+            size = img.shape[:2],
+            mode='bicubic',
+            align_corners=False,
+
+        ).squeeze()
+
+    # Obtaining the numpy array of the image
+    output = prediction.cpu().numpy()
+
+    save_depth(output)
+
+    # plt.imshow(output, cmap='magma')
+    # plt.show()
+
+def save_depth(image):
+    """ This function allow the creation of a new depth image applying normalization using numpy.
+        This results on a image based on the original only focus on the depth without the scale projection
+        check the folder Processing for the next step.
+    """
+
+    # Applying normalization using opencv
+    normalized_img = cv2.normalize(image, None, alpha=0,
+                                   beta=255, norm_type=cv2.NORM_MINMAX)
+
+    # visualizing the new matrix numpy
+    # print(normalized_img)
+
+    # convertion of float to numeric of the matrix using numpy
+    int_img = normalized_img.astype(np.uint8)
+    # print(int_img)
+
+    # plt.savefig("image", dpi=300, bbox_inches="tight")
+    cv2.imwrite("data/image.png", int_img)
+
+# Calling the fuction
+proc_comp_img(fn)
+
+# processing_image_depth(fn)
 
 # processing video depth function
 def processing_video_depth():
