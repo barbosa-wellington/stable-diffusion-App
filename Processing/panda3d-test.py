@@ -11,7 +11,7 @@ app = ShowBase()
 
 #load a simple model for test the graphics
 # All models are located at pandas\models folder
-model = app.loader.load_model('course2.egg')
+model = app.loader.load_model('data/course2/course2.egg')
 model.reparent_to(app.render)
 app.run()
 
