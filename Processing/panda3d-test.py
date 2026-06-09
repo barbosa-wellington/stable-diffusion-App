@@ -23,10 +23,13 @@ def loading_datasource_open3d():
         This method will only works if the file .ply was saved as a binary format
     """
     dataset = o3d.io.read_point_cloud('data/test-save.ply')
-    return dataset
 
+    vertex_v = np.asarray(dataset[0,1,2])
+    color_c = np.asarray(dataset[3, 4])
+    
+    return [vertex_v, color_c]
 
-
+# print(help(dataset))
 
 def loading_datasource_python():
     """Method to read the ply file using python IO
