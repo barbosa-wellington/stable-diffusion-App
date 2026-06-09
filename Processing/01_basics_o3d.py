@@ -61,7 +61,16 @@ def generate_3D_view(color_img1 : o3d.geometry.Image , depth_img2: o3d.geometry.
     
     return pointcloud_image
 
-generate_3D_view(img_o, img_d)
+# generate_3D_view(img_o, img_d)
+
+def save_point_cloud(new_pc : o3d.geometry.PointCloud):
+    """ Function to save a point_cloud image as a ply for Panda3D visualization """
+
+    # parameter write_ascii allows saving the file on a human readable way, otherwise it will be save as a binary
+    o3d.io.write_point_cloud('data/test-save.ply', new_pc, write_ascii = True )
+
+save_point_cloud(generate_3D_view(img_o, img_d))
+
 # #visualization of the data
 # o3d.visualization.draw_geometries([pcd])
 
