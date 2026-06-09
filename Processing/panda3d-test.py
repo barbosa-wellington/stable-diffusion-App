@@ -5,6 +5,11 @@ print('this is a test of 3d working with python and pandas 3d')
 # to run the code
 # C:\users\wellb\anaconda3\python.exe .\3d-project.py
 
+
+# reference source for 3d image in Python
+# Creating Realistic 3D Graphics In Python
+# https://www.youtube.com/watch?v=9-h-8_jiktY
+
 from direct.showbase.ShowBase import ShowBase
 
 app = ShowBase()

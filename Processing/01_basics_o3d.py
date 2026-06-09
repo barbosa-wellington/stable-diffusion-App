@@ -5,6 +5,12 @@ Spyder Editor
 This is a temporary script file.
 """
 
+
+# reference source for 3d image in Python
+# Python programming for 3D Data
+# https://www.youtube.com/watch?v=h2QiptJYX6c
+
+
 # import the necessary labraries
 import open3d as o3d
 import numpy as np
