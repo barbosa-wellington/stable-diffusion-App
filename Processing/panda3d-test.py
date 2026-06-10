@@ -24,12 +24,23 @@ def loading_datasource_open3d():
     """
     dataset = o3d.io.read_point_cloud('data/test-save.ply')
 
-    vertex_v = np.asarray(dataset[0,1,2])
-    color_c = np.asarray(dataset[3, 4])
+    vertex_v = np.asarray(dataset.points)
+    color_c = np.asarray(dataset.colors)
     
-    return [vertex_v, color_c]
+    return (vertex_v, color_c)
 
-# print(help(dataset))
+def validate_value_open3d(value1 : np.ndarray):
+    print("Format of vertex (x,y,z):", value1[0][0])
+    print("Format of colors (R,G,B):", value1[1][0])
+
+
+data = loading_datasource_open3d()
+validate_value_open3d(data)
+
+test = data[1][0]
+print(test[0])
+
+
 
 def loading_datasource_python():
     """Method to read the ply file using python IO

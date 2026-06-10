@@ -69,7 +69,8 @@ def save_point_cloud(new_pc : o3d.geometry.PointCloud):
     # parameter write_ascii allows saving the file on a human readable way, otherwise it will be save as a binary
     o3d.io.write_point_cloud('data/test-save.ply', new_pc, write_ascii = True )
 
-save_point_cloud(generate_3D_view(img_o, img_d))
+generate_3D_view(img_o, img_d)
+# save_point_cloud(generate_3D_view(img_o, img_d))
 
 # #visualization of the data
 # o3d.visualization.draw_geometries([pcd])
