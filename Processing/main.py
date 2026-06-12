@@ -23,7 +23,7 @@ class Dream_app(ShowBase):
         
         # 4. Afasta a floresta 10 metros para a frente e desce ela 2 metros para alinhar com a câmera
         self.nodepath.set_pos(0, 10, -2)
-        self.nodepath.setHpr(0,180,0)
+
 
     def geom_node(self):
         # Create a VertexFormat to hold the arrays
