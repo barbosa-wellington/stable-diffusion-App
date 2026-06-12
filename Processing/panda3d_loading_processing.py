@@ -30,9 +30,15 @@ def loading_datasource_open3d():
     return (vertex_v, color_c)
 
 def validate_value_open3d(value1 : np.ndarray):
+
+    t1, t2 = value1
     print("Format of vertex (x,y,z):", value1[0][0])
     print("Format of colors (R,G,B):", value1[1][0])
+    print("Format of vertex (x,y,z):", len(value1[0][0]))
+    print("Format of colors (R,G,B):", len(value1[1][0]))
 
+    print("Shape of vertex (x,y,z):", t1.shape)
+    print("Shape of colors (R,G,B):", t2.shape)
 
 data = loading_datasource_open3d()
 validate_value_open3d(data)

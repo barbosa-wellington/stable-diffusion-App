@@ -7,32 +7,6 @@ import panda3d_loading_processing as plp
 
 from math import pi, sin, cos
 
-class MyApp(ShowBase):
-
-    def __init__(self):
-        ShowBase.__init__(self)
-
-        # load the environment model
-        self.scene = self.loader.loadModel('bvw-f2004--streetscene/street-scene.egg')
-
-        # Reparent the model to render.
-        self.scene.reparentTo(self.render)
-
-        #Apply scale and position transforms on the model
-        self.scene.setScale(0.25, 0.25, 0.25)
-        self.scene.setPos(-8, 42, 0)
-
-        self.taskMgr.add(self.spinCameraTask, "SpinCameraTask")
-
-    def spinCameraTask(self, task):
-        angleDegrees = task.time * 6.0
-        angleRadians = angleDegrees * (pi / 180.0)
-        self.camera.setPos(20 * sin(angleRadians), - 20 * cos(angleRadians), 3)
-        self.camera.setHpr(angleDegrees, 0 , 0)
-        return Task.cont
-
-# app = MyApp()
-# app.run()
 
 class Dream_app(ShowBase):
 
@@ -42,10 +16,6 @@ class Dream_app(ShowBase):
 
 
     def geom_node(self):
-        # array = GeomVertexArrayFormat()
-        # array.add_column("vertex", 3, Geom.NT_float32, Geom.C_point)
-        # array.add_column("color", 3, Geom.NT_float32, Geom.C_color)
-
         # Create a VertexFormat to hold the arrays
         format = GeomVertexFormat.get_v3c4()
         # format.addArray(array)
@@ -63,22 +33,19 @@ class Dream_app(ShowBase):
 
         
         for i in range(len(verx)):
-            vertex.add_data3f(verx[i])
-            color.add_data3f(colr[i])
+            vertex.add_data3f(tuple(verx[i]))
+            color.add_data3f(tuple(colr[i]))
 
         prim = GeomPoints(Geom.UH_static)
         prim.add_next_vertices(len(verx))
 
         geom = Geom(vdata)
-        geom.add_Primitive(prim)
+        geom.addPrimitive(prim)
 
         node = GeomNode('forest')
-        node.add_Geom(geom)
+        node.addGeom(geom)
 
         nodepath = render.attachNewNode(node)
- 
-        forest = GeomPoints()
-
 
     # Design a method that obtain the vertex of image using the 
 
