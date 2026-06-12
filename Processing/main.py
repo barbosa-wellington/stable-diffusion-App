@@ -4,7 +4,7 @@ from panda3d.core import GeomVertexArrayFormat, GeomVertexData, GeomVertexFormat
 from panda3d.core import GeomVertexReader, GeomVertexWriter, GeomPoints
 from panda3d.core import RenderModeAttrib
 
-import panda3d_loading_processing as plp
+import panda_loading_3d as plp
 
 from math import pi, sin, cos
 
@@ -16,14 +16,14 @@ class Dream_app(ShowBase):
         self.nodepath = self.geom_node()
  
         # 2. Força os pontos a terem 5 pixels de tamanho (deixará a floresta visível e densa)
-        self.nodepath.set_attrib(RenderModeAttrib.make(RenderModeAttrib.M_point, 5))
+        self.nodepath.set_attrib(RenderModeAttrib.make(RenderModeAttrib.M_point, 3))
         
         # 3. Dá um "zoom" gigante de 500 vezes para compensar os números pequenos do MiDaS
         self.nodepath.set_scale(500, 500, 500)
         
         # 4. Afasta a floresta 10 metros para a frente e desce ela 2 metros para alinhar com a câmera
         self.nodepath.set_pos(0, 10, -2)
-
+        self.nodepath.setHpr(0,180,0)
 
     def geom_node(self):
         # Create a VertexFormat to hold the arrays
