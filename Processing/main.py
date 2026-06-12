@@ -2,6 +2,7 @@ from direct.showbase.ShowBase import ShowBase
 from direct.task import Task
 from panda3d.core import GeomVertexArrayFormat, GeomVertexData, GeomVertexFormat, Geom, GeomNode
 from panda3d.core import GeomVertexReader, GeomVertexWriter, GeomPoints
+from panda3d.core import RenderModeAttrib
 
 import panda3d_loading_processing as plp
 
@@ -12,7 +13,16 @@ class Dream_app(ShowBase):
 
     def __init__(self):
         ShowBase.__init__(self)
-        nodepath = self.geom_node()
+        self.nodepath = self.geom_node()
+ 
+        # 2. Força os pontos a terem 5 pixels de tamanho (deixará a floresta visível e densa)
+        self.nodepath.set_attrib(RenderModeAttrib.make(RenderModeAttrib.M_point, 5))
+        
+        # 3. Dá um "zoom" gigante de 500 vezes para compensar os números pequenos do MiDaS
+        self.nodepath.set_scale(500, 500, 500)
+        
+        # 4. Afasta a floresta 10 metros para a frente e desce ela 2 metros para alinhar com a câmera
+        self.nodepath.set_pos(0, 10, -2)
 
 
     def geom_node(self):
@@ -28,6 +38,7 @@ class Dream_app(ShowBase):
 
         vdata = GeomVertexData("forest", format, Geom.UH_static)
         vdata.set_num_rows(len(verx))
+        print("forest was created")
         vertex = GeomVertexWriter(vdata, 'vertex')
         color  = GeomVertexWriter(vdata, 'color')
 
@@ -38,15 +49,20 @@ class Dream_app(ShowBase):
 
         prim = GeomPoints(Geom.UH_static)
         prim.add_next_vertices(len(verx))
+        print("prim was created")
 
         geom = Geom(vdata)
         geom.addPrimitive(prim)
 
+        print("Geaom and primitive were created")
         node = GeomNode('forest')
         node.addGeom(geom)
 
+        print("node was created")
         nodepath = render.attachNewNode(node)
+        print("nodepath render was created")
 
+        return nodepath
     # Design a method that obtain the vertex of image using the 
 
 

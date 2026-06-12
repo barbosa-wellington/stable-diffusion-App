@@ -41,7 +41,7 @@ def validate_value_open3d(value1 : np.ndarray):
     print("Shape of colors (R,G,B):", t2.shape)
 
 data = loading_datasource_open3d()
-validate_value_open3d(data)
+# validate_value_open3d(data)
 
 
 
