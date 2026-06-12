@@ -3,7 +3,7 @@ from direct.task import Task
 from panda3d.core import GeomVertexArrayFormat, GeomVertexData, GeomVertexFormat, Geom, GeomNode
 from panda3d.core import GeomVertexReader, GeomVertexWriter, GeomPoints
 
-import panda3d_loading_processing as plp
+# import panda3d_loading_processing as plp
 
 from math import pi, sin, cos
 
@@ -22,17 +22,17 @@ class MyApp(ShowBase):
         self.scene.setScale(0.25, 0.25, 0.25)
         self.scene.setPos(-8, 42, 0)
 
-        self.taskMgr.add(self.spinCameraTask, "SpinCameraTask")
+        # self.taskMgr.add(self.spinCameraTask, "SpinCameraTask")
 
-    def spinCameraTask(self, task):
-        angleDegrees = task.time * 6.0
-        angleRadians = angleDegrees * (pi / 180.0)
-        self.camera.setPos(20 * sin(angleRadians), - 20 * cos(angleRadians), 3)
-        self.camera.setHpr(angleDegrees, 0 , 0)
-        return Task.cont
+    # def spinCameraTask(self, task):
+    #     angleDegrees = task.time * 6.0
+    #     angleRadians = angleDegrees * (pi / 180.0)
+    #     self.camera.setPos(20 * sin(angleRadians), - 20 * cos(angleRadians), 3)
+    #     self.camera.setHpr(angleDegrees, 0 , 0)
+    #     return Task.cont
 
-# app = MyApp()
-# app.run()
+app = MyApp()
+app.run()
 
 class Dream_app(ShowBase):
 
@@ -85,6 +85,6 @@ class Dream_app(ShowBase):
 
 
 
-app_dream = Dream_app()
-app_dream.run()
+# app_dream = Dream_app()
+# app_dream.run()
 
