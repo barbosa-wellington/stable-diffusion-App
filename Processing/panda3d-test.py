@@ -37,9 +37,6 @@ def validate_value_open3d(value1 : np.ndarray):
 data = loading_datasource_open3d()
 validate_value_open3d(data)
 
-test = data[1][0]
-print(test[0])
-
 
 
 def loading_datasource_python():

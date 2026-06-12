@@ -14,7 +14,7 @@ import numpy as np
 #download of MiDaS models - Image for the test
 midas= torch.hub.load('isl-org/MiDaS', 'MiDaS_small')
 filename = 'data/00001-1918428395.png'
-fn = 'data/ocean-coast.jpg'
+fn = 'data/wallhaven-3qqdg6.jpg'
 
 
 # modifying the model to check for avaiable GPU otherwise use cpu
@@ -50,6 +50,7 @@ def processing_image_depth(image):
     # Obtaining the numpy array of the image
     output = prediction.cpu().numpy()
 
+    save_depth(output)
 
     # add the image to a plot and using hte cmap function to distiguish the depths
     fig, axes = plt.subplots(1, 2, figsize=(12, 6))

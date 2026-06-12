@@ -19,8 +19,8 @@ import cv2
 #load data in variables
 pcd = o3d.io.read_point_cloud('data/bun_zipper_res2.ply')
 # pcd_original = o3d.io.read_point_cloud('dragon_stand/dragonStandRight_336.ply')
-img_o = o3d.io.read_image('data/forest-scene.png')
-img_d = o3d.io.read_image('data/forest-scene-image.png')
+img_o = o3d.io.read_image('data/wallhaven-3qqdg6.jpg')
+img_d = o3d.io.read_image('data/ocean-image.png')
 
 
 
