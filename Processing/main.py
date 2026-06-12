@@ -4,7 +4,7 @@ from panda3d.core import GeomVertexArrayFormat, GeomVertexData, GeomVertexFormat
 from panda3d.core import GeomVertexReader, GeomVertexWriter, GeomPoints
 from panda3d.core import RenderModeAttrib
 
-import panda3d_loading_processing as plp
+import panda_loading_3d as plp
 
 from math import pi, sin, cos
 
@@ -22,7 +22,7 @@ class Dream_app(ShowBase):
         self.nodepath.set_scale(500, 500, 500)
         
         # 4. Afasta a floresta 10 metros para a frente e desce ela 2 metros para alinhar com a câmera
-        self.nodepath.set_pos(0, 10, -2)
+        self.nodepath.set_pos(0, 42, -2)
 
 
     def geom_node(self):
