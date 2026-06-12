@@ -1,5 +1,9 @@
 from direct.showbase.ShowBase import ShowBase
 from direct.task import Task
+from panda3d.core import GeomVertexArrayFormat, GeomVertexData, GeomVertexFormat, Geom, GeomNode
+from panda3d.core import GeomVertexReader, GeomVertexWriter
+
+import panda3d_loading_processing as plp
 
 from math import pi, sin, cos
 
@@ -27,5 +31,41 @@ class MyApp(ShowBase):
         self.camera.setHpr(angleDegrees, 0 , 0)
         return Task.cont
 
-app = MyApp()
-app.run()
+# app = MyApp()
+# app.run()
+
+class Dream_app(ShowBase):
+
+    def __init__(self):
+        ShowBase.__init__()
+
+
+    def geom_node(self):
+        array = GeomVertexArrayFormat()
+        array.add_column("vertex", 3, Geom.NT_float32, Geom.C_point)
+        array.add_column("color", 3, Geom.NT_float32, Geom.C_color)
+
+        # Create a VertexFormat to hold the arrays
+        format = GeomVertexFormat.getV3c4()
+        format.addArray(array)
+
+        # register the Vertexformat to build up the internal tables to rendering it.
+        # for adding or removing a new array must be created
+        format = GeomVertexFormat.registerFomart(format)
+
+        vdata = GeomVertexData("forest", format, Geom.UH_static)
+        vdata.set_num_rows(2)
+        vertex = GeomVertexWriter(vdata, 'vertex')
+        color  = GeomVertexWriter(vdata, 'color')
+
+
+    # Design a method that obtain the vertex of image using the 
+
+
+
+
+# app_dream = Dream_app()
+# app_dream.run()
+
+
+plp.tst_print()

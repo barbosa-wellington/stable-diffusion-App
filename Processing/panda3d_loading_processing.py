@@ -66,6 +66,11 @@ def loading_datasource_python():
         
         return matrix_vertex_colour
 
+
+
+def tst_print():
+    print('this is a test from the panda3d file.')
+
 # testing the method based on python reading file
 # test = loading_datasource_python()
 # print(test[1][0],test[1][3])
