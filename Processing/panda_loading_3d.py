@@ -41,7 +41,7 @@ def validate_value_open3d(value1 : np.ndarray):
     print("Shape of colors (R,G,B):", t2.shape)
 
 data = loading_datasource_open3d()
-# validate_value_open3d(data)
+validate_value_open3d(data)
 
 
 
@@ -51,7 +51,7 @@ def loading_datasource_python():
     This method will only read the file if it was previously saved with flag write_ascii == True
     """
 
-    with open('data/test-save.ply', 'r') as file:
+    with open('data/bun_zipper_res2.ply', 'r') as file:
 
         matrix_vertex_colour = []
         is_header  = True
