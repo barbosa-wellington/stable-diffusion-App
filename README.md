@@ -63,8 +63,19 @@ stable-diffusion-app/
 └── backend/                  <-- Express API Gateway Bridge
     ├── index.js             <-- Network routing server, CORS policies, & Fetch protocols
     └── package.json         <-- Managed runtime modules (Express 5.x & CORS)
-
+├── Processing/                  <-- 3D graph environments 
+    ├── main.py              <-- Virtual Environment for showing pointcloud Image
+    └── 02_render_panda3d.py <-- Test based on Panda3D tutorial
+    ├── Open3D               <-- Virtual Environment for showing pointcloud Image
+    ├── Panda3D              <-- Game Enginer for rendering data sources
+    ├── Research             <-- Jupyter notebook for image processing and exploration
+    ├── Data                 <-- Data storage for testing and save Ply file
 ```
+
+# Architecture
+
+GenDream architecture integrates stable diffusion sdxl_light huggingFace, MiDaS image Depth, Open3D pointcloud, and Panda3D rendering source 3D for image reconstruction.
+
 
 # Critical Code Architecture References
 
