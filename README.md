@@ -30,7 +30,7 @@ The backend contains all the endpoint to access the stable diffusion API
     ## MidaS for deepth image analysis:
 
 <p align='center'>
-<img src='./backend/code-w-Midas/data/MiDaS_depth01.jpg' width="500" height="500" alt="App logo" />
+<img src='./backend/MiDaS/data/MiDaS_depth01.jpg' width="500" height="500" alt="App logo" />
 </p>
 
 
@@ -61,15 +61,15 @@ stable-diffusion-app/
 │   ├── tsconfig.json        <-- TypeScript Compilation Configurations 
 │   └── package.json         <-- Target Expo Module Dependencies (SDK 54 Compatibility Node)
 └── backend/                  <-- Express API Gateway Bridge
-    ├── index.js             <-- Network routing server, CORS policies, & Fetch protocols
-    └── package.json         <-- Managed runtime modules (Express 5.x & CORS)
+│   ├── index.js             <-- Network routing server, CORS policies, & Fetch protocols
+│   └── package.json         <-- Managed runtime modules (Express 5.x & CORS)
 ├── Processing/                  <-- 3D graph environments 
-    ├── main.py              <-- Virtual Environment for showing pointcloud Image
-    └── 02_render_panda3d.py <-- Test based on Panda3D tutorial
-    ├── Open3D               <-- Virtual Environment for showing pointcloud Image
-    ├── Panda3D              <-- Game Enginer for rendering data sources
-    ├── Research             <-- Jupyter notebook for image processing and exploration
-    ├── Data                 <-- Data storage for testing and save Ply file
+│   ├── main.py              <-- Virtual Environment for showing pointcloud Image
+│   └── 02_render_panda3d.py <-- Test based on Panda3D tutorial
+│   ├── Open3D               <-- Virtual Environment for showing pointcloud Image
+│   ├── Panda3D              <-- Game Enginer for rendering data sources
+│   ├── Research             <-- Jupyter notebook for image processing and exploration
+│   └── Data                 <-- Data storage for testing and save Ply file
 ```
 
 # Architecture
