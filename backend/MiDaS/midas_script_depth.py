@@ -28,7 +28,7 @@ transforms = torch.hub.load('isl-org/MiDaS', 'transforms')
 transform = transforms.small_transform
 
 # ploting image of depth map
-def processing_image_depth(image):
+def processing_orig_depth_image(image):
     # using an image for this test
     img = cv2.imread(image)
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -69,7 +69,7 @@ def processing_image_depth(image):
     plt.show()
 
 # create a simple depth asset of given image
-def proc_comp_img(image):
+def processing_image_depth(image):
     # using an image for this test
     img = cv2.imread(image)
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
