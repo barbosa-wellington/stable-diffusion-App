@@ -14,7 +14,8 @@ import numpy as np
 #download of MiDaS models - Image for the test
 midas= torch.hub.load('isl-org/MiDaS', 'MiDaS_small')
 filename = 'data/00001-1918428395.png'
-fn = 'data/wallhaven-3qqdg6.jpg'
+# fn = 'data/wallhaven-3qqdg6.jpg'
+fn = 'data/00001-1918428395.png'
 
 
 # modifying the model to check for avaiable GPU otherwise use cpu
@@ -91,9 +92,9 @@ def processing_image_depth(image):
     # Obtaining the numpy array of the image
     output = prediction.cpu().numpy()
 
-    # save_depth(output)
+    save_depth(output)
 
-    plt.imshow(output, cmap='magma')
+    plt.imshow(output)
     plt.show()
 
 def save_depth(image):
@@ -116,7 +117,7 @@ def save_depth(image):
     # invert so far = dark, near
     int_img = cv2.bitwise_not(int_img)
     # plt.savefig("image", dpi=300, bbox_inches="tight")
-    cv2.imwrite("data/ocean-image.png", int_img)
+    cv2.imwrite("data/forest-image.png", int_img)
 
 # Calling the fuction
 # proc_comp_img(fn)

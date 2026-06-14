@@ -76,6 +76,10 @@ stable-diffusion-app/
 
 GenDream architecture integrates stable diffusion sdxl_light huggingFace, MiDaS image Depth, Open3D pointcloud, and Panda3D rendering source 3D for image reconstruction.
 
+<p align='center'>
+<img src='mobile/assets/images/project-structure.png' width="500" height="500" alt="App logo" />
+</p>
+
 
 # Critical Code Architecture References
 
