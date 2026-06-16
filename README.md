@@ -131,7 +131,8 @@ const generateImage = async () => {
 
 ## Acknowledgements & Citations
 
-- **Stable Diffusion** — Stability AI
-- **MiDaS** — Intel ISL — [GitHub](https://github.com/isl-org/MiDaS)
-- **Open3D** — Zhou et al., 2018 — MIT License — [open3d.org](https://www.open3d.org)
-- **Panda3D** — Goslin & Mine, 2004 — BSD License — [panda3d.org](https://www.panda3d.org)
+* **Stable Diffusion** — Stability AI — [stability.ai](https://stability.ai)
+* **MiDaS** — Intel ISL — MIT License — [GitHub](https://github.com/isl-org/MiDaS)
+* **Open3D** — Zhou et al., 2018 — MIT License — [open3d.org](https://www.open3d.org/)
+* **Panda3D** — Goslin & Mine, 2004 — BSD License — [panda3d.org](https://www.panda3d.org/)
+* **DSINE** — Bae & Davison, CVPR 2024 — MIT License — [GitHub](https://github.com/baegwangbin/DSINE)
