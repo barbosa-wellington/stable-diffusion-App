@@ -15,7 +15,7 @@ import numpy as np
 midas= torch.hub.load('isl-org/MiDaS', 'MiDaS_small')
 filename = 'data/00001-1918428395.png'
 # fn = 'data/wallhaven-3qqdg6.jpg'
-fn = 'data/00001-1918428395.png'
+fn = 'data/forest-scene copy.png'
 
 
 # modifying the model to check for avaiable GPU otherwise use cpu
