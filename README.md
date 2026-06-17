@@ -33,6 +33,23 @@ The backend contains all the endpoint to access the stable diffusion API
 <img src='./backend/MiDaS/data/MiDaS_depth01.jpg' width="500" height="500" alt="App logo" />
 </p>
 
+# DSINE project for natual estimation of depth and object position.
+
+The DSINE folder contains the project exploration of image depth and shapes using a deep learning model
+
+  Test with different image types.
+
+<p align='center'>
+<img src='/mobile/assets/images/original_dsine.png' width="500" height="500" alt="App logo" />
+</p>
+
+  Output DSINE images.
+
+<p align='center'>
+<img src='/mobile/assets/images/dsine_dsine.png' width="500" height="500" alt="App logo" />
+</p>   
+
+
 
 # Processing
 
