@@ -27,11 +27,25 @@ The backend contains all the endpoint to access the stable diffusion API
         node index.js
 
 
-    ## MidaS for deepth image analysis:
+## MidaS
+
+MiDaS is an open-source project developed by Intel Labs. It involves the exploration of Monocular Depth Estimation on an specific dataset. GenDream Fusion utilizes MiDaS to understand the nuances of an image and extract it for a more vivid representation on a virtual 3D world.
+
 
 <p align='center'>
 <img src='./backend/MiDaS/data/MiDaS_depth01.jpg' width="500" height="500" alt="App logo" />
 </p>
+
+<p align='center'>
+<img src='./backend/MiDaS/data/MiDaS_depth02.jpg' width="500" height="500" alt="App logo" />
+</p>
+
+  1. **Install dependencies**
+    ```bash
+      conda env create -f backend/MiDaS/environment.yml
+      conda activate midas-env
+    ```  
+
 
 ## DSINE 
 
@@ -52,7 +66,7 @@ Dsine is a project paper presented at CVPR 2024 where researchers explored alter
 
 GenDream Fusion uses dsine to generate the surface normal estimation for a more realistic representation on Panda3D virtual environment. To recreate the same test environment, you can opt to use Anaconda env model:
 
-  1. **Install dependencies**
+  2. **Install dependencies**
   ```bash
     conda env create -f backend/Dsine/environment.yml
     conda activate dsine-env
