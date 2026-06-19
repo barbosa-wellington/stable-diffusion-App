@@ -41,10 +41,10 @@ MiDaS is an open-source project developed by Intel Labs. It involves the explora
 </p>
 
   1. **Install dependencies**
-    ```bash
-      conda env create -f backend/MiDaS/environment.yml
-      conda activate midas-env
-    ```  
+  ```bash
+    conda env create -f backend/MiDaS/environment.yml
+    conda activate midas-env
+  ```  
 
 
 ## DSINE 
