@@ -33,21 +33,35 @@ The backend contains all the endpoint to access the stable diffusion API
 <img src='./backend/MiDaS/data/MiDaS_depth01.jpg' width="500" height="500" alt="App logo" />
 </p>
 
-# DSINE project for natual estimation of depth and object position.
+## DSINE 
 
-The DSINE folder contains the project exploration of image depth and shapes using a deep learning model
+Dsine is a project paper presented at CVPR 2024 where researchers explored alternatives to increase the accuracy of surface normal estimation focusing on inductive biases. Their method combines per-pixel ray direction and encode neighboring surface normal to achieve more realistic description path of objects on image.
 
-  Test with different image types.
+  App original images with different details.
 
 <p align='center'>
 <img src='/mobile/assets/images/original_dsine.png' width="500" height="500" alt="App logo" />
 </p>
 
-  Output DSINE images.
+  Output DSINE images with color highlight and object direction description.
 
 <p align='center'>
 <img src='/mobile/assets/images/dsine_dsine.png' width="500" height="500" alt="App logo" />
 </p>   
+
+
+GenDream Fusion uses dsine to generate the surface normal estimation for a more realistic representation on Panda3D virtual environment. To recreate the same test environment, you can opt to use Anaconda env model:
+
+  1. **Install dependencies**
+  ```bash
+    conda env create -f backend/Dsine/environment.yml
+    conda activate dsine-env
+  ``
+
+
+
+
+  
 
 
 
