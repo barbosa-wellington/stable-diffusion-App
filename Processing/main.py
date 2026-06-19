@@ -18,6 +18,7 @@ class Dream_app(ShowBase):
         # 2. Força os pontos a terem 5 pixels de tamanho (deixará a floresta visível e densa)
         self.nodepath.set_attrib(RenderModeAttrib.make(RenderModeAttrib.M_point, 3))
         
+        # self.nodepath.reparentTo(self.render)
         # 3. Dá um "zoom" gigante de 500 vezes para compensar os números pequenos do MiDaS
         self.nodepath.set_scale(500, 500, 500)
         
