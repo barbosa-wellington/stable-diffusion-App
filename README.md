@@ -56,12 +56,7 @@ GenDream Fusion uses dsine to generate the surface normal estimation for a more 
   ```bash
     conda env create -f backend/Dsine/environment.yml
     conda activate dsine-env
-  ``
-
-
-
-
-  
+  ```  
 
 
 
