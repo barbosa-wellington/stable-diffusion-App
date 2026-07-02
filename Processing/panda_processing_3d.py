@@ -19,8 +19,8 @@ import cv2
 #load data in variables
 pcd = o3d.io.read_point_cloud('data/bun_zipper_res2.ply')
 # pcd_original = o3d.io.read_point_cloud('dragon_stand/dragonStandRight_336.ply')
-img_o = o3d.io.read_image('data/00001-1918428395.png')
-img_d = o3d.io.read_image('data/forest-image.png')
+img_o = o3d.io.read_image('data/test/wallhaven-5gej77.jpg')
+img_d = o3d.io.read_image('data/test/asset-Midas-1.png')
 
 
 
@@ -61,13 +61,13 @@ def generate_3D_view(color_img1 : o3d.geometry.Image , depth_img2: o3d.geometry.
     
     return pointcloud_image
 
-# generate_3D_view(img_o, img_d)
+generate_3D_view(img_o, img_d)
 
 def save_point_cloud(new_pc : o3d.geometry.PointCloud):
     """ Function to save a point_cloud image as a ply for Panda3D visualization """
 
-    # parameter write_ascii allows saving the file on a human readable way, otherwise it will be save as a binary
-    o3d.io.write_point_cloud('data/test-forest.ply', new_pc, write_ascii = False )
+    # parameter write_ascii allows saving the file on a human readable way, otherwise it will be save as a binary , write_ascii = False 
+    o3d.io.write_point_cloud('data/test/landscape.ply', new_pc)
 
 # generate_3D_view(img_o, img_d)
 save_point_cloud(generate_3D_view(img_o, img_d))
