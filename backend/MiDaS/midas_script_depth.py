@@ -5,7 +5,7 @@ import cv2
 import torch
 import matplotlib.pyplot as plt
 import numpy as np
-
+# import timm
 # reference source for deep study
 # indepth vision using MiDaS
 # https://www.youtube.com/watch?v=c_WbKfyt8pY
@@ -15,7 +15,7 @@ import numpy as np
 midas= torch.hub.load('isl-org/MiDaS', 'MiDaS_small')
 filename = 'data/00001-1918428395.png'
 # fn = 'data/wallhaven-3qqdg6.jpg'
-fn = 'data/forest-scene copy.png'
+fn = 'data/wallhaven-5gej77.jpg'
 
 
 # modifying the model to check for avaiable GPU otherwise use cpu
@@ -117,10 +117,11 @@ def save_depth(image):
     # invert so far = dark, near
     int_img = cv2.bitwise_not(int_img)
     # plt.savefig("image", dpi=300, bbox_inches="tight")
-    cv2.imwrite("data/forest-image.png", int_img)
+    cv2.imwrite("data/asset-Midas-1.png", int_img)
 
 # Calling the fuction
 # proc_comp_img(fn)
+processing_orig_depth_image(fn)
 
 # save_depth(fn)
 processing_image_depth(fn)
