@@ -27,8 +27,8 @@ if DSINE_PATH not in sys.path:
 # CVPR 2024 Oral
 
 # ── DSINE path setup ──────────────────────────────────────
-DSINE_PATH = './Dsine'
-sys.path.append(DSINE_PATH)
+# DSINE_PATH = './Dsine'
+# sys.path.append(DSINE_PATH)
 
 from utils.projection import intrins_from_fov
 import utils.utils as utils
