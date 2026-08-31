@@ -5,6 +5,7 @@ import cv2
 import torch
 import matplotlib.pyplot as plt
 import numpy as np
+import os 
 # import timm
 # reference source for deep study
 # indepth vision using MiDaS
@@ -13,9 +14,8 @@ import numpy as np
 
 #download of MiDaS models - Image for the test
 midas= torch.hub.load('isl-org/MiDaS', 'MiDaS_small')
-filename = 'data/deep-forest01.png'
-# fn = 'data/wallhaven-3qqdg6.jpg'
-fn = 'data/wallhaven-5gej77.jpg'
+filename = 'data/wallhaven-nme329.jpg'
+
 
 
 # modifying the model to check for avaiable GPU otherwise use cpu
@@ -71,12 +71,19 @@ def processing_orig_depth_image(image):
 
 # create a simple depth asset of given image
 def processing_image_depth(image):
-    # using an image for this test
-    img = cv2.imread(image)
 
-    
+
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+
+    absolute_path = os.path.join(script_dir, image)
+
+    print(f" testing loading, {absolute_path}")
+
+    # using an image for this test
+    img = cv2.imread(absolute_path)
+        
     if img is None:
-        print(f"Not possible load the image on the file path ", {img})
+        print(f"Not possible load the image on the file path ", {absolute_path})
         return 
 
 
@@ -105,7 +112,7 @@ def processing_image_depth(image):
     plt.imshow(output)
     plt.show()
 
-# def save_depth(image):
+def save_depth(image):
     """ This function allow the creation of a new depth image applying normalization using numpy.
         This results on a image based on the original only focus on the depth without the scale projection
         check the folder Processing for the next step.
@@ -125,49 +132,49 @@ def processing_image_depth(image):
     # invert so far = dark, near
     int_img = cv2.bitwise_not(int_img)
     # plt.savefig("image", dpi=300, bbox_inches="tight")
-    cv2.imwrite("data/deep-forest01-midas.png", int_img)
+    cv2.imwrite("data/city-midas.png", int_img)
 
 # Calling the fuction
 # proc_comp_img(fn)
-# processing_orig_depth_image(fn)
+processing_orig_depth_image(filename)
 
 # save_depth(fn)
-processing_image_depth(filename)
+# processing_image_depth(filename)
 
 # processing video depth function
-def processing_video_depth():
+# def processing_video_depth():
 
-    # Hook into OpenCV
-    cap = cv2.VideoCapture(0)
-    while cap.isOpened():
-        ret, frame = cap.read()
+#     # Hook into OpenCV
+#     cap = cv2.VideoCapture(0)
+#     while cap.isOpened():
+#         ret, frame = cap.read()
 
-        # transform import from Midas
-        img = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        imgbatch = transform(img).to(device)
+#         # transform import from Midas
+#         img = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+#         imgbatch = transform(img).to(device)
 
-        # making a prediction
-        with torch.no_grad():
-            prediction = midas(imgbatch)
-            prediction = torch.nn.functional.interpolate(
-                prediction.unsqueeze(1),
-                size= img.shape[:2],
-                mode='bicubic',
-                align_corners=False
-            ).squeeze()
+#         # making a prediction
+#         with torch.no_grad():
+#             prediction = midas(imgbatch)
+#             prediction = torch.nn.functional.interpolate(
+#                 prediction.unsqueeze(1),
+#                 size= img.shape[:2],
+#                 mode='bicubic',
+#                 align_corners=False
+#             ).squeeze()
 
-            output = prediction.cpu().numpy()
+#             output = prediction.cpu().numpy()
             
-            # print(prediction)
-            # print(output)
+#             # print(prediction)
+#             # print(output)
             
-        plt.imshow(output)
-        cv2.imshow('CV2Frame',frame)
-        plt.pause(0.00001)
+#         plt.imshow(output)
+#         cv2.imshow('CV2Frame',frame)
+#         plt.pause(0.00001)
 
-        if cv2.waitKey(10) & 0xFF ==ord('q'):
-            cap.release()
-            cv2.destroyAllWindows()
-    plt.show()
+#         if cv2.waitKey(10) & 0xFF ==ord('q'):
+#             cap.release()
+#             cv2.destroyAllWindows()
+#     plt.show()
 
 # processing_video_depth()
