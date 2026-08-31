@@ -13,7 +13,7 @@ import numpy as np
 
 #download of MiDaS models - Image for the test
 midas= torch.hub.load('isl-org/MiDaS', 'MiDaS_small')
-filename = 'data/00001-1918428395.png'
+filename = 'data/deep-forest01.png'
 # fn = 'data/wallhaven-3qqdg6.jpg'
 fn = 'data/wallhaven-5gej77.jpg'
 
@@ -73,7 +73,15 @@ def processing_orig_depth_image(image):
 def processing_image_depth(image):
     # using an image for this test
     img = cv2.imread(image)
+
+    
+    if img is None:
+        print(f"Not possible load the image on the file path ", {img})
+        return 
+
+
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
 
     input_batch = transform(img).to(device)
 
@@ -92,12 +100,12 @@ def processing_image_depth(image):
     # Obtaining the numpy array of the image
     output = prediction.cpu().numpy()
 
-    save_depth(output)
+    # save_depth(output)
 
     plt.imshow(output)
     plt.show()
 
-def save_depth(image):
+# def save_depth(image):
     """ This function allow the creation of a new depth image applying normalization using numpy.
         This results on a image based on the original only focus on the depth without the scale projection
         check the folder Processing for the next step.
@@ -117,14 +125,14 @@ def save_depth(image):
     # invert so far = dark, near
     int_img = cv2.bitwise_not(int_img)
     # plt.savefig("image", dpi=300, bbox_inches="tight")
-    cv2.imwrite("data/asset-Midas-1.png", int_img)
+    cv2.imwrite("data/deep-forest01-midas.png", int_img)
 
 # Calling the fuction
 # proc_comp_img(fn)
-processing_orig_depth_image(fn)
+# processing_orig_depth_image(fn)
 
 # save_depth(fn)
-processing_image_depth(fn)
+processing_image_depth(filename)
 
 # processing video depth function
 def processing_video_depth():
