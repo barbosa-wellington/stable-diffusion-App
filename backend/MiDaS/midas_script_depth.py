@@ -14,7 +14,7 @@ import os
 
 #download of MiDaS models - Image for the test
 midas= torch.hub.load('isl-org/MiDaS', 'MiDaS_small')
-filename = 'data/wallhaven-nme329.jpg'
+filename = 'data/wallhaven-l332jq.jpg'
 
 
 
@@ -30,6 +30,7 @@ transform = transforms.small_transform
 
 # ploting image of depth map
 def processing_orig_depth_image(image):
+    """This method receives an image selected by the user, and then return the image with its version depth."""
     # using an image for this test
     img = cv2.imread(image)
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -71,6 +72,9 @@ def processing_orig_depth_image(image):
 
 # create a simple depth asset of given image
 def processing_image_depth(image):
+    """ This method receives an image and process it using the cv2 library. By applying normalization methods
+    it then return the new image as a depth using MiDaS module.
+    """
 
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -142,39 +146,39 @@ processing_orig_depth_image(filename)
 # processing_image_depth(filename)
 
 # processing video depth function
-# def processing_video_depth():
+def processing_video_depth():
 
-#     # Hook into OpenCV
-#     cap = cv2.VideoCapture(0)
-#     while cap.isOpened():
-#         ret, frame = cap.read()
+    # Hook into OpenCV
+    cap = cv2.VideoCapture(0)
+    while cap.isOpened():
+        ret, frame = cap.read()
 
-#         # transform import from Midas
-#         img = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-#         imgbatch = transform(img).to(device)
+        # transform import from Midas
+        img = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        imgbatch = transform(img).to(device)
 
-#         # making a prediction
-#         with torch.no_grad():
-#             prediction = midas(imgbatch)
-#             prediction = torch.nn.functional.interpolate(
-#                 prediction.unsqueeze(1),
-#                 size= img.shape[:2],
-#                 mode='bicubic',
-#                 align_corners=False
-#             ).squeeze()
+        # making a prediction
+        with torch.no_grad():
+            prediction = midas(imgbatch)
+            prediction = torch.nn.functional.interpolate(
+                prediction.unsqueeze(1),
+                size= img.shape[:2],
+                mode='bicubic',
+                align_corners=False
+            ).squeeze()
 
-#             output = prediction.cpu().numpy()
+            output = prediction.cpu().numpy()
             
-#             # print(prediction)
-#             # print(output)
+            # print(prediction)
+            # print(output)
             
-#         plt.imshow(output)
-#         cv2.imshow('CV2Frame',frame)
-#         plt.pause(0.00001)
+        plt.imshow(output)
+        cv2.imshow('CV2Frame',frame)
+        plt.pause(0.00001)
 
-#         if cv2.waitKey(10) & 0xFF ==ord('q'):
-#             cap.release()
-#             cv2.destroyAllWindows()
-#     plt.show()
+        if cv2.waitKey(10) & 0xFF ==ord('q'):
+            cap.release()
+            cv2.destroyAllWindows()
+    plt.show()
 
 # processing_video_depth()
