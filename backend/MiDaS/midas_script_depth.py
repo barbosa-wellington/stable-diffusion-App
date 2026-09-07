@@ -14,7 +14,7 @@ import os
 
 #download of MiDaS models - Image for the test
 midas= torch.hub.load('isl-org/MiDaS', 'MiDaS_small')
-filename = 'data/forest-scene copy.png'
+filename = 'data/wallhaven-yqg6r7.jpg'
 
 
 
