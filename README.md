@@ -44,6 +44,7 @@ MiDaS is an open-source project developed by Intel Labs. It involves the explora
   ```bash
     conda env create -f backend/MiDaS/environment.yml
     conda activate midas-env
+    # environment name 3dstable
   ```  
 
 
@@ -66,16 +67,16 @@ Dsine is a project paper presented at CVPR 2024 where researchers explored alter
 
 GenDream Fusion uses dsine to generate the surface normal estimation for a more realistic representation on Panda3D virtual environment. To recreate the same test environment, you can opt to use Anaconda env model:
 
+
+# Processing
+
+
   2. **Install dependencies**
   ```bash
     conda env create -f backend/Dsine/environment.yml
     conda activate dsine-env
+    # environment name diffusion
   ```  
-
-
-
-# Processing
-
 The processing cotains all the test using different 3D libraries such as Panda3D and Open3D
 
         python panda3d-test.py
