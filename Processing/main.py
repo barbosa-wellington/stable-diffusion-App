@@ -67,8 +67,6 @@ class Dream_app(ShowBase):
     # Design a method that obtain the vertex of image using the 
 
 
-
-
 app_dream = Dream_app()
 app_dream.run()
 
